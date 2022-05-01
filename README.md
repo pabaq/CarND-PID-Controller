@@ -1,14 +1,15 @@
-# PID Controller
-Lateral trajectory tracking using a Proportional-Integral-Derivative (PID) controller to 
-regulate the steering angle.
-
-This project is part of Udacity's [Self-Driving-Car Nanodegree][Course]. The project 
-description and build instructions can be found [here][Project], the simulator 
+This project is part of Udacity's [Self-Driving-Car Nanodegree][Course]. The project
+description and build instructions can be found [here][Project], the required simulator
 [here][Simulator].
 
-## PID Control overview
+The goal of this project is the implementation and tuning of a PID controller that is used
+to control the steering angle of a vehicle so that it can follow its assigned trajectory
+on the lake track.
+
+
+## PID control overview
 The PID controller is one of the most frequently used control loop feedback mechanisms in 
-practice. Let us have a quick overview about what a control loop actually is.
+practice. The control loop implemented for this project is shown below.
 
 ![][ControlLoop]
 
@@ -53,7 +54,7 @@ alone is not sufficient to do this safely, as the abruptly increasing cross trac
 curves leads to overshooting tendencies resulting in strong oscillations (right video). We need
 to consider an additional control term.
 
-| high K<sub>P</sub> (unstable) | low K<sub>P</sub> (to slow) | medium K<sub>P</sub> (still oscillating)|	
+| high K<sub>P</sub> (unstable) | low K<sub>P</sub> (unresponsive) | medium K<sub>P</sub> (still oscillating)|	
 | ----------------------------- | ----------------- | --------------------------- |
 | ![][KpUnstable]               | ![][KpLow]        | ![KpInit]                   |
 
@@ -111,7 +112,7 @@ a reference about the general effects of each of the gains on the system's behav
 
 ![][Tuning]
 
-## Result
+## Project result
 The PID gains were tuned manually, by observing their effects on the driving behaviour in the 
 simulator and considering their influence on the system's behaviour, as shown in the table 
 above. The finally chosen gains are
@@ -131,14 +132,14 @@ implementation of the controller can be found in the [`src`][Src] folder.
 [Project]: https://github.com/udacity/CarND-PID-Control-Project
 [Simulator]: https://github.com/udacity/self-driving-car-sim/releases/tag/v1.45
 
-[ControlLoop]: images/contol_loop.png "Feedback control loop"
-[PID]: images/PID.png "PID control loop"
-[Tuning]: images/Tuning.png "PID control tuning"
+[ControlLoop]: https://github.com/pabaq/CarND-PID-Controller/raw/main/images/contol_loop.png "Feedback control loop"
+[PID]: https://github.com/pabaq/CarND-PID-Controller/raw/main/images/PID.png "PID control loop"
+[Tuning]: https://github.com/pabaq/CarND-PID-Controller/raw/main/images/Tuning.png "PID control tuning"
 
-[KpLow]: videos/kp_low_2x_480.gif "Low Kp"
-[KpUnstable]: videos/kp_unstable_480.gif "High Kp (unstable)"
-[KpInit]: videos/kp_initial_1_5x_480.gif "Initial Kp"
-[PDControl]: videos/pd_control_1_5x_480.gif "PD controller"
-[Final]: videos/pd_control_2x_480.gif "Full lap"
+[KpLow]: https://github.com/pabaq/CarND-PID-Controller/raw/main/videos/kp_low_2x_480.gif "Low Kp"
+[KpUnstable]: https://github.com/pabaq/CarND-PID-Controller/raw/main/videos/kp_unstable_480.gif "High Kp (unstable)"
+[KpInit]: https://github.com/pabaq/CarND-PID-Controller/raw/main/videos/kp_initial_1_5x_480.gif "Initial Kp"
+[PDControl]: https://github.com/pabaq/CarND-PID-Controller/raw/main/videos/pd_control_1_5x_480.gif "PD controller"
+[Final]: https://github.com/pabaq/CarND-PID-Controller/raw/main/videos/pd_control_2x_480.gif "Full lap"
 
-[Src]: https://github.com/Harlequln/C2M13X-PID_Controller/tree/main/src
+[Src]: https://github.com/pabaq/CarND-PID-Controller/tree/main/src
